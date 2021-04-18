@@ -1,0 +1,231 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"$sizePolicy": 1
+			"resizable": false
+			"font": &Font0 new java.awt.Font( "华文细黑", 0, 16 )
+			"title": "回复投诉页面"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "title"
+				"text": "请点击想回复的行"
+				"font": new java.awt.Font( "华文琥珀", 0, 28 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 585
+				"y": 15
+				"width": 280
+				"height": 70
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "complainTable"
+					"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						add( new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+					}, new java.util.Vector {
+						add( "投诉id" )
+						add( "用户id" )
+						add( "投诉时间" )
+						add( "回复时间" )
+						add( "投诉内容" )
+						add( "回复内容" )
+					}, new java.util.Vector {
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+					}, new java.util.Vector {
+						add( false )
+						add( false )
+						add( false )
+						add( false )
+						add( false )
+						add( false )
+					}, new java.util.Vector {
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+						add( null )
+					} )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 45
+				"y": 105
+				"width": 1430
+				"height": 560
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "idLabel"
+				"text": "投诉id："
+				"font": &Font1 new java.awt.Font( "华文楷体", 0, 18 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 250
+				"y": 760
+				"width": 90
+				"height": 55
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "idTxt"
+				"font": #Font1
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 350
+				"y": 760
+				"width": 255
+				"height": 55
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "contentLabel"
+				"text": "回复内容："
+				"font": new java.awt.Font( "华文楷体", 0, 18 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 675
+				"y": 760
+				"width": 110
+				"height": 45
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "contentScrollPane"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "contentTxt"
+					"font": #Font1
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 815
+				"y": 705
+				"width": 480
+				"height": 175
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "submitButton"
+				"text": "确认"
+				"font": new java.awt.Font( "华文楷体", 0, 16 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "submitButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 1320
+				"y": 770
+				"width": 130
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "noButton"
+				"text": "未回复"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "noButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 985
+				"y": 60
+				"width": 90
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "okButton"
+				"text": "已回复"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 1080
+				"y": 60
+				"width": 90
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ascButton"
+				"text": "时间升序"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ascButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 1170
+				"y": 60
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "descButton"
+				"text": "时间降序"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "descButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 1270
+				"y": 60
+				"width": 100
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "allButton"
+				"text": "全部"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "allButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 1375
+				"y": 60
+				"width": 90
+				"height": 35
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1520, 930 )
+		} )
+	}
+}

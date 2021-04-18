@@ -6,19 +6,27 @@ package com.llh.view;
 
 import com.llh.controller.UserController;
 import com.llh.entity.User;
+import com.llh.utils.CodePicture;
 import com.llh.utils.NumberLenghtLimitedDmt;
 import com.llh.utils.PasswordLenghtLimitedDmt;
 import com.llh.utils.PhoneFormatCheckUtils;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * @author liuling
  */
 public class loginView extends JFrame {
+    private int count = 0;
 
     private final UserController userController = new UserController();
     //定义一个控制层的对象，将获取到的数据输入给控制层，再由控制层往下传输，处理之后逐层返回结果
@@ -28,31 +36,49 @@ public class loginView extends JFrame {
         initComponents();
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     //登录按钮
     private void loginButActionPerformed(String phoneNumber, char[] pwd) {
-        //校验是否为空账号或空密码
-        if(phoneNumber == null||pwd == null){
-            JOptionPane.showMessageDialog(this, "请勿输入空账号或空密码",
-                    "登录结果", JOptionPane.ERROR_MESSAGE);//最后一个是消息类型
+        if(count>=3){
+            new CodePic(this);
 
         }
-        user  = userController.login(phoneNumber,pwd);
+        else {
+            //校验是否为空账号或空密码
+            if (phoneNumber == null || pwd == null) {
+                JOptionPane.showMessageDialog(this, "请勿输入空账号或空密码",
+                        "登录结果", JOptionPane.ERROR_MESSAGE);//最后一个是消息类型
+                //输入空的，conut++
+                count++;
 
-        if(user != null){
-            int identity = user.getStatus();
-            if(identity == 0){
-                this.dispose();
-                new UserMainView(user);
             }
-            if(identity == 1){
-                JOptionPane.showMessageDialog(this, "登录成功，管理员",
-                        "登录结果", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-        if(user==null){
-            JOptionPane.showMessageDialog(this, "登录失败，请您再次检查您的账号和密码是否输入正确或账号是否冻结",
-                    "登录结果", JOptionPane.ERROR_MESSAGE);
+            user = userController.login(phoneNumber, pwd);
 
+            if (user != null) {
+                int identity = user.getStatus();
+                if (identity == 0 || identity == 2) {
+                    //普通用户：0；被冻结的用户：2
+                    this.dispose();
+                    new UserMainView(user);
+                }
+                if (identity == 1) {
+                    //管理员
+                    this.dispose();
+                    new AdministratorView(user);
+                }
+            }
+            if (user == null) {
+                JOptionPane.showMessageDialog(this, "登录失败，请您再次检查您的账号和密码是否输入正确或账号是否冻结",
+                        "登录结果", JOptionPane.ERROR_MESSAGE);
+                count++;
+            }
         }
 
 

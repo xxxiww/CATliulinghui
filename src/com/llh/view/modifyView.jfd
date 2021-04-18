@@ -1,0 +1,103 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"title": "修改个人信息"
+			"$sizePolicy": 1
+			"resizable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "title"
+				"text": "修改个人信息"
+				"font": new java.awt.Font( "华文彩云", 1, 30 )
+				"foreground": new java.awt.Color( 51, 51, 51, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 125
+				"y": 5
+				"width": 200
+				"height": 65
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "headLabel"
+				"text": "修改头像："
+				"font": &Font0 new java.awt.Font( "华文楷体", 0, 18 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 35
+				"y": 105
+				"width": 105
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "nameLabel"
+				"text": "修改昵称："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 35
+				"y": 160
+				"width": 90
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "nameTextField"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 125
+				"y": 165
+				"width": 225
+				"height": 30
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "passwordLabel"
+				"text": "修改密码："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 35
+				"y": 215
+				"width": 90
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "passwordTextField"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 125
+				"y": 215
+				"width": 225
+				"height": 30
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "alterButton"
+				"text": "确认修改"
+				"font": new java.awt.Font( "华文楷体", 0, 18 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "alterButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 165
+				"y": 270
+				"width": 115
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "headImgBut"
+				"text": "上传"
+				"font": new java.awt.Font( "华文楷体", 0, 15 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "headImgButMouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 260
+				"y": 105
+				"width": 90
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "imgLable"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 145
+				"y": 60
+				"width": 100
+				"height": 100
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 15 )
+			"size": new java.awt.Dimension( 465, 355 )
+		} )
+	}
+}

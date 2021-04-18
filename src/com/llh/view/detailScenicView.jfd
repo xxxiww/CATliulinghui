@@ -1,0 +1,160 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"title": "景点详情页面"
+			"font": &Font0 new java.awt.Font( "华文楷体", 0, 16 )
+			"$sizePolicy": 1
+			"resizable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "title"
+				"text": "景点详情"
+				"font": new java.awt.Font( "华文琥珀", 1, 26 )
+				"foreground": new java.awt.Color( 255, 153, 153, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 295
+				"y": 5
+				"width": 130
+				"height": 60
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "景点图片："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 75
+				"y": 130
+				"height": 50
+				"width": 95
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "imgLable"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 185
+				"y": 60
+				"width": 365
+				"height": 215
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "景点名："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 90
+				"y": 285
+				"width": 75
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "nameTextField"
+				"font": &Font1 new java.awt.Font( "华文楷体", 0, 16 )
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 285
+				"width": 380
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "景点地点："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 80
+				"y": 345
+				"width": 90
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "localTextField"
+				"font": #Font1
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 345
+				"width": 380
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "票价："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 110
+				"y": 405
+				"width": 55
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "开放时间："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 80
+				"y": 465
+				"width": 90
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "priceTextField"
+				"font": #Font1
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 405
+				"width": 380
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "openTimeTxt"
+				"font": #Font1
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 465
+				"width": 380
+				"height": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "详细描述："
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 80
+				"y": 590
+				"width": 85
+				"height": 45
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "desTextArea"
+					"font": #Font1
+					"editable": false
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 530
+				"width": 380
+				"height": 195
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "detailBut"
+				"text": "查看评论"
+				"font": new java.awt.Font( "华文楷体", 0, 16 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "detailButActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 265
+				"y": 750
+				"width": 185
+				"height": 55
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 695, 880 )
+		} )
+	}
+}

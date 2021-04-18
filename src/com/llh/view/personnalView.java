@@ -4,6 +4,8 @@
 
 package com.llh.view;
 
+import com.llh.entity.User;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -11,21 +13,35 @@ import javax.swing.*;
  * @author liuling
  */
 public class personnalView extends JDialog {
-    public personnalView(Window owner) {
-        super(owner);
+    private final User user;
+
+    public personnalView(Window owner,User user) {
+        super((JFrame) owner,"\u4e2a\u4eba\u4fe1\u606f",true);
+        this.user = user;
+        //初始化界面
         initComponents();
+        //头像
+        ImageIcon icon=new ImageIcon(user.getHeadImg());
+        icon.setImage(icon.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+        headImg.setIcon(icon);
+        nameTextField.setText(user.getUserName());
+        phoneTextField.setText(user.getPhoneNumber());
+        chargeTextField.setText(String.valueOf(user.getBalance()));
+        setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
-        label2 = new JLabel();
-        textField1 = new JTextField();
-        label3 = new JLabel();
-        textField2 = new JTextField();
-        label4 = new JLabel();
-        textField3 = new JTextField();
-        label6 = new JLabel();
+        title = new JLabel();
+        nameLabel = new JLabel();
+        nameTextField = new JTextField();
+        phoneLabel = new JLabel();
+        phoneTextField = new JTextField();
+        chargeLabel = new JLabel();
+        chargeTextField = new JTextField();
+        headImg = new JLabel();
         label7 = new JLabel();
 
         //======== this ========
@@ -35,41 +51,50 @@ public class personnalView extends JDialog {
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
-        //---- label1 ----
-        label1.setText("\u4e2a\u4eba\u4fe1\u606f");
-        label1.setFont(new Font("\u534e\u6587\u5f69\u4e91", Font.PLAIN, 40));
-        label1.setForeground(new Color(255, 204, 255));
-        contentPane.add(label1);
-        label1.setBounds(190, 5, 210, 85);
+        //---- title ----
+        title.setText("\u4e2a\u4eba\u4fe1\u606f");
+        title.setFont(new Font("\u534e\u6587\u5f69\u4e91", Font.BOLD, 40));
+        title.setForeground(Color.darkGray);
+        contentPane.add(title);
+        title.setBounds(190, 5, 210, 85);
 
-        //---- label2 ----
-        label2.setText("\u6635\u79f0\uff1a");
-        label2.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
-        contentPane.add(label2);
-        label2.setBounds(100, 215, 80, 35);
-        contentPane.add(textField1);
-        textField1.setBounds(175, 215, 245, 35);
+        //---- nameLabel ----
+        nameLabel.setText("\u6635\u79f0\uff1a");
+        nameLabel.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
+        contentPane.add(nameLabel);
+        nameLabel.setBounds(100, 215, 80, 35);
 
-        //---- label3 ----
-        label3.setText("\u624b\u673a\u53f7\u7801\uff1a");
-        label3.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
-        contentPane.add(label3);
-        label3.setBounds(60, 265, 110, 35);
-        contentPane.add(textField2);
-        textField2.setBounds(175, 265, 245, 35);
+        //---- nameTextField ----
+        nameTextField.setEditable(false);
+        contentPane.add(nameTextField);
+        nameTextField.setBounds(175, 215, 245, 35);
 
-        //---- label4 ----
-        label4.setText("\u4f59\u989d\uff1a");
-        label4.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
-        contentPane.add(label4);
-        label4.setBounds(100, 310, 65, 40);
-        contentPane.add(textField3);
-        textField3.setBounds(175, 315, 245, 35);
+        //---- phoneLabel ----
+        phoneLabel.setText("\u624b\u673a\u53f7\u7801\uff1a");
+        phoneLabel.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
+        contentPane.add(phoneLabel);
+        phoneLabel.setBounds(60, 265, 110, 35);
 
-        //---- label6 ----
-        label6.setText("text");
-        contentPane.add(label6);
-        label6.setBounds(235, 105, 100, 100);
+        //---- phoneTextField ----
+        phoneTextField.setEditable(false);
+        contentPane.add(phoneTextField);
+        phoneTextField.setBounds(175, 265, 245, 35);
+
+        //---- chargeLabel ----
+        chargeLabel.setText("\u4f59\u989d\uff1a");
+        chargeLabel.setFont(new Font("\u534e\u6587\u7425\u73c0", Font.PLAIN, 20));
+        contentPane.add(chargeLabel);
+        chargeLabel.setBounds(100, 310, 65, 40);
+
+        //---- chargeTextField ----
+        chargeTextField.setEditable(false);
+        contentPane.add(chargeTextField);
+        chargeTextField.setBounds(175, 315, 245, 35);
+
+        //---- headImg ----
+        headImg.setText("text");
+        contentPane.add(headImg);
+        headImg.setBounds(235, 105, 100, 100);
 
         //---- label7 ----
         label7.setText("\u5934\u50cf\uff1a");
@@ -97,14 +122,15 @@ public class personnalView extends JDialog {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
-    private JLabel label2;
-    private JTextField textField1;
-    private JLabel label3;
-    private JTextField textField2;
-    private JLabel label4;
-    private JTextField textField3;
-    private JLabel label6;
+    private JLabel title;
+    private JLabel nameLabel;
+    private JTextField nameTextField;
+    private JLabel phoneLabel;
+    private JTextField phoneTextField;
+    private JLabel chargeLabel;
+    private JTextField chargeTextField;
+    private JLabel headImg;
     private JLabel label7;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    
 }

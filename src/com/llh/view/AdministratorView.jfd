@@ -1,0 +1,67 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"title": "管理员主页面"
+			"$sizePolicy": 1
+			"resizable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "title"
+				"text": "您好！亲爱的管理员！"
+				"font": new java.awt.Font( "华文琥珀", 1, 18 )
+				"foreground": new java.awt.Color( 255, 153, 153, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 105
+				"y": 10
+				"width": 200
+				"height": 30
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "replyBut"
+				"text": "回复用户投诉"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "replyButActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 130
+				"y": 180
+				"width": 125
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "frozeBut"
+				"text": "冻结用户"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "frozeButActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 130
+				"y": 120
+				"width": 125
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "deleteCommentBut"
+				"text": "删除评论"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteCommentButActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 130
+				"y": 245
+				"width": 125
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "setScenicBut"
+				"text": "设置景点信息"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "setScenicButActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 130
+				"y": 55
+				"width": 125
+				"height": 45
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 50, 0 )
+			"size": new java.awt.Dimension( 435, 365 )
+		} )
+	}
+}

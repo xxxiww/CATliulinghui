@@ -86,6 +86,15 @@ new FormModel {
 				"x": 270
 				"y": 270
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "edwf"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 145
+				"y": 320
+				"width": 135
+				"height": 40
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 15, 30 )
 			"size": new java.awt.Dimension( 430, 415 )

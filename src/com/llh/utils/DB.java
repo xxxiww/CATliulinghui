@@ -1,8 +1,11 @@
 package com.llh.utils;
 
+    import java.lang.reflect.Field;
     import java.sql.*;
+    import java.util.ArrayList;
+    import java.util.List;
 
-    public class DB {
+public class DB {
         static{
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");//加载数据库驱动
@@ -160,6 +163,36 @@ package com.llh.utils;
                 }
 
         }
+
+    public static <T> List<T> selectAll(Class<T> c,String sql,PreparedStatement ps) {
+
+        List<T> list = new ArrayList<T>();                        //存储查询结果
+        Field[] field = c.getDeclaredFields();                //通过反射获取所有属性
+        ResultSet rs = null;
+        try {
+            rs = ps.executeQuery();                    //返回结果集
+            while(rs.next()) {
+                T obj = c.newInstance();            //通过反射构造一个T类型的实例
+                for(int i = 0; i < field.length; i++) {        //
+
+                    field[i].setAccessible(true);            //设置属性的可访问性(可以访问私有属性)
+                    field[i].set(obj, rs.getObject(field[i].getName()));    //通过属性名获取结果集中的值赋值到实例对象中
+                }
+                list.add(obj);            //将实例对象添加到list集合
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }finally {
+            closeRs(rs);
+        }
+        return list;
     }
+
+    }
+
 
 
